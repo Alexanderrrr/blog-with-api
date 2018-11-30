@@ -10,11 +10,11 @@
       </div>
       <div class="form-group row">
         <label>Title</label>
-        <input v-model="newPost.title" type="text" class="form-control" placeholder="Title" min="2" required>
+        <input v-model="newPost.title" type="text" class="form-control" placeholder="Title" minlength="2" required>
       </div>
       <div class="form-group row">
         <label>Text</label>
-        <input v-model="newPost.text" type="text" class="form-control" placeholder="Textt" min="2" required>
+        <input v-model="newPost.text" type="text" class="form-control" placeholder="Text" maxlength="300" required>
       </div>
       <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
       <button class="btn btn-default" type="reset" value="Reset">Reset</button>
@@ -36,6 +36,11 @@ export default {
 
   methods: {
     addNewPost(){
+      this.errors = []
+      if (this.newPost.title.length < 2) {
+        return this.errors.push("Title cant be less than 2 characters")
+      }
+
       postsService.add(this.newPost)
       this.newPost = {}
       this.$router.push({path: '/posts'})
@@ -45,6 +50,7 @@ export default {
     resetForm(){
       this.newPost.title = ""
       this.newPost.text = ""
+      this.errors = []
     }
   }
 }
