@@ -12,7 +12,19 @@
 import postsService from '../services/PostsService'
 
 export default {
-  posts: postsService.getAll()
+  created(){
+    postsService.getAll()
+    .then(response => {
+      this.posts = response.data
+    })
+
+  },
+
+  data(){
+    return {
+      posts: []
+    }
+  }
 }
 </script>
 

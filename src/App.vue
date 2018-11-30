@@ -8,22 +8,20 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link" :to="{name:'add-car'}">Add Posts</router-link>
+            <router-link class="nav-link" :to="{name:'add-post'}">Add Post</router-link>
           </li>
         </ul>
       </div>
     </nav>
-    <img alt="Vue logo" src="./assets/logo.png">
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
   }
 }
 </script>

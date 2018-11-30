@@ -13,6 +13,10 @@ class PostsService {
   get(id){
     return axios.get(`posts/${id}`)
   }
+
+  add(post){
+    return axios.post('posts', post)
+  }
 }
 
 const postsService = new PostsService();
