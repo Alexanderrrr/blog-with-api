@@ -6,6 +6,8 @@
         <li>{{ post.title }}</li>
         <h1>Post Text</h1>
         <li>{{ post.text }}</li>
+        <p>created at</p>
+        <li>{{ post.createdAt | formatDate }}</li>
         <h3>Number of comments for this post: {{post.comments.length}}</h3>
         <router-link :to="{ name: 'single-post', params: {id:post.id} }">View Post</router-link><br>
         <button @click="editPostBtn(post.id)" class="btn btn-primary">Edit Post</button><br>
@@ -25,8 +27,11 @@
 <script>
 import postsService from '../services/PostsService'
 import axios from 'axios'
+import {mixin, DateMixin} from '../mixins/mixins'
 
 export default {
+  mixins: [mixin, DateMixin],
+
   created(){
     postsService.getAll()
     .then(response => {

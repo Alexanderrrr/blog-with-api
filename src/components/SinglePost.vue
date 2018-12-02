@@ -3,8 +3,9 @@
     <h1>{{ post.title }}</h1>
     <p>{{ post.text }}</p>
     <h3>Comments for this post</h3>
-    <ul>
-      <li v-for="com in comments">{{com.text}}</li>
+    <ul  v-for="com in comments">
+      <li>{{com.text}}</li>
+      <li>{{ com.createdAt | diffForHumans}}</li>
     </ul>
     <hr>
     <AddComment @addCommentFromComponent="add"/>
@@ -14,8 +15,11 @@
 <script>
 import postsService from '../services/PostsService'
 import AddComment from '../components/AddComment'
+import {mixin, DateMixin} from '../mixins/mixins'
 
 export default {
+  mixins: [mixin, DateMixin],
+  
   components: {
     AddComment
   },
