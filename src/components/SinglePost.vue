@@ -12,7 +12,7 @@
               <li>{{ post.text }}</li>
               <li>created: {{ post.createdAt | diffForHumans  }}</li>
               <li><h4>Comments For This Post</h4></li>
-              <ul  v-for="com in comments">
+              <ul  v-for="com in comments" :key="com.id">
                 <li>{{com.text}}</li>
                 <li>{{ com.createdAt | diffForHumans}}</li>
               </ul>

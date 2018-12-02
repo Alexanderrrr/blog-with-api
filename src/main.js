@@ -10,7 +10,7 @@ Vue.use(VueRouter)
 Vue.config.productionTip = false
 
 const routes = [
-  {path:'/', redirect:'/cars'},
+  {path:'/', redirect:'/posts'},
   {path:'/posts', component: AppPosts, name:'posts'},
   {path:'/posts/:id', component: SinglePost, name: 'single-post'},
   {path:'/add', component: AddPost, name:'add-post'},

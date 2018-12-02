@@ -28,6 +28,7 @@ import postsService from '../services/PostsService'
 import {mixin} from '../mixins/mixins'
 
 export default {
+  
 mixins: [mixin],
 
 created(){

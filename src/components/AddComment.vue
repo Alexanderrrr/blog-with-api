@@ -18,9 +18,9 @@ export default {
   data(){
     return {
       newComment: {}
-
     }
   },
+  
   methods: {
     addComment(){
       this.$emit('addCommentFromComponent', this.newComment)
