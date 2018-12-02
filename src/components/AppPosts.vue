@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="card-deck mb-3 text-center">
+    <div class="mb-3 text-center">
       <template v-if="posts.length">
         <div class="card mb-4 shadow-sm" v-for="post in posts" :key="post.id">
           <div class="card-header">
@@ -67,4 +67,8 @@ export default {
 </script>
 
 <style lang="css">
+.container {
+  display: flex;
+  justify-content: center;
+}
 </style>

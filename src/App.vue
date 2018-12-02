@@ -7,6 +7,7 @@
           <router-link class="p-2 text-dark" :to="{name:'add-post'}">Add Post</router-link>
         </nav>
     </div>
+    <img alt="Vivify logo" src="./assets/vivify-logo.png">
     <router-view></router-view>
   </div>
 </template>
@@ -29,4 +30,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>

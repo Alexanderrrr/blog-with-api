@@ -1,7 +1,7 @@
 
 <template>
   <div class="container">
-    <div class="card-deck mb-3 text-center">
+    <div class="mb-3 text-center">
         <div class="card mb-4 shadow-sm">
           <div class="card-header">
             <h4 class="my-0 font-weight-normal">Post: {{ post.id }}</h4>
@@ -10,7 +10,7 @@
             <h1 class="card-title pricing-card-title">{{ post.title }}</h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>{{ post.text }}</li>
-              <li>created: {{ post.createdAt | diffForHumans  }}</li>
+              <li>created: {{ post.createdAt | diffForHumans  }}</li><br>
               <li><h4>Comments For This Post</h4></li>
               <ul  v-for="com in comments" :key="com.id">
                 <li>{{com.text}}</li>
@@ -19,8 +19,8 @@
             </ul>
           </div>
         </div>
+        <AddComment @addCommentFromComponent="add"/>
     </div>
-    <AddComment @addCommentFromComponent="add"/>
   </div>
 </template>
 
