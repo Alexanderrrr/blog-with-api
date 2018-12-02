@@ -1,18 +1,12 @@
 <template>
-  <div id="app" class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <router-link class="navbar-brand" :to="{name:'posts'}">Posts</router-link>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <router-link class="nav-link" :to="{name:'add-post'}">Add Post</router-link>
-          </li>
-        </ul>
-      </div>
-    </nav>
+  <div id="app">
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal">Vivify Academy</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+          <router-link class="p-2 text-dark" :to="{name:'posts'}">Posts</router-link>
+          <router-link class="p-2 text-dark" :to="{name:'add-post'}">Add Post</router-link>
+        </nav>
+    </div>
     <router-view></router-view>
   </div>
 </template>

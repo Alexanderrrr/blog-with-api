@@ -1,28 +1,34 @@
 <template>
-  <div>
-    <template v-if="posts.length">
-      <dl v-for="post in posts" :key="post.id">
-        <h1>Post Title</h1>
-        <li>{{ post.title }}</li>
-        <h1>Post Text</h1>
-        <li>{{ post.text }}</li>
-        <p>created at</p>
-        <li>{{ post.createdAt | formatDate }}</li>
-        <h3>Number of comments for this post: {{post.comments.length}}</h3>
-        <router-link :to="{ name: 'single-post', params: {id:post.id} }">View Post</router-link><br>
-        <button @click="editPostBtn(post.id)" class="btn btn-primary">Edit Post</button><br>
-        <button @click="deletePost(post.id)" class="btn btn-danger">Delete</button>
-        <hr>
-      </dl>
-    </template>
+  <div class="container">
+    <div class="card-deck mb-3 text-center">
+      <template v-if="posts.length">
+        <div class="card mb-4 shadow-sm" v-for="post in posts" :key="post.id">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Post: {{ post.id }}</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">{{ post.title }}</h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>{{ post.text }}</li>
+              <li>created: {{ post.createdAt | diffForHumans  }}</li>
+              <li><strong>There is {{ post.comments.length }} comments for this post</strong></li>
+              <li>
+                <router-link :to="{ name: 'single-post', params: {id:post.id} }">View Post</router-link>
+              </li>
+            </ul>
+            <button @click="editPostBtn(post.id)" class="btn btn-lg btn-block btn-primary">Edit</button>
+            <button @click="deletePost(post.id)" class="btn btn-lg btn-block btn-primary">Delete</button>
+          </div>
+        </div>
+      </template>
     <template v-else>
        <div>
          <h1>There is No Posts</h1>
        </div>
     </template>
+    </div>
   </div>
 </template>
-
 
 <script>
 import postsService from '../services/PostsService'
@@ -37,7 +43,6 @@ export default {
     .then(response => {
       this.posts = response.data
     })
-
   },
 
   data(){
@@ -56,10 +61,8 @@ export default {
       .then((success) => {
         this.posts = this.posts.filter(c => c.id !== id)
       })
-
     }
   },
-
 }
 </script>
 

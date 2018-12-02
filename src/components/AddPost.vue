@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+  <div class="container">
     <form @submit.prevent="addNewPost" @reset="resetForm">
       <div class="form-group row">
         <p v-if="errors.length">
