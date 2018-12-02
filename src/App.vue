@@ -7,8 +7,10 @@
           <router-link class="p-2 text-dark" :to="{name:'add-post'}">Add Post</router-link>
         </nav>
     </div>
-    <img alt="Vivify logo" src="./assets/vivify-logo.png">
-    <router-view></router-view>
+    <div class="jumbotron">
+      <img alt="Vivify logo" src="./assets/vivify-logo.png">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
