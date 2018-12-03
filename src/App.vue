@@ -33,4 +33,9 @@ export default {
   margin-top: 60px;
 }
 
+img {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
 </style>

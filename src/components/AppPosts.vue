@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <div class="mb-3 text-center">
       <template v-if="posts.length">
         <div class="card mb-4 shadow-sm" v-for="post in posts" :key="post.id">
           <div class="card-header">
@@ -26,7 +25,6 @@
          <h1>There is No Posts</h1>
        </div>
     </template>
-    </div>
   </div>
 </template>
 
@@ -69,6 +67,13 @@ export default {
 <style lang="css">
 .container {
   display: flex;
-  justify-content: center;
+   align-items: flex-start;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  height: 100%
+}
+
+.mb-3 {
+  margin: auto;
 }
 </style>
